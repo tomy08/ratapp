@@ -6,6 +6,7 @@ import {
   Linkedin,
   Twitter,
   Facebook,
+  Instagram,
 } from 'lucide-react'
 
 export function Footer() {
@@ -25,15 +26,18 @@ export function Footer() {
               respaldada por el gobierno y confiada por las mejores academias.
             </p>
             <div className="flex space-x-3">
-              <div className="w-8 h-8 bg-primary-foreground/10 rounded-lg flex items-center justify-center hover:bg-primary-foreground/20 transition-colors cursor-pointer">
+              <a
+                href="https://www.linkedin.com/in/luis-manuel-rodriguez-m%C3%A1rquez-b2208729b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                className="w-8 h-8 bg-primary-foreground/10 rounded-lg flex items-center justify-center hover:bg-primary-foreground/20 transition-colors cursor-pointer"
+              >
                 <Linkedin className="w-4 h-4" />
-              </div>
-              <div className="w-8 h-8 bg-primary-foreground/10 rounded-lg flex items-center justify-center hover:bg-primary-foreground/20 transition-colors cursor-pointer">
-                <Twitter className="w-4 h-4" />
-              </div>
-              <div className="w-8 h-8 bg-primary-foreground/10 rounded-lg flex items-center justify-center hover:bg-primary-foreground/20 transition-colors cursor-pointer">
-                <Facebook className="w-4 h-4" />
-              </div>
+              </a>
+              <a
+                href="https://www.instagram.com/luismaxd27?igsh=MW5zYmUxb3ZtZmowMQ=="
+                className="w-8 h-8 bg-primary-foreground/10 rounded-lg flex items-center justify-center hover:bg-primary-foreground/20 transition-colors cursor-pointer"
+              >
+                <Instagram className="w-4 h-4" />
+              </a>
             </div>
           </div>
 
@@ -84,64 +88,18 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="font-semibold mb-4">Soporte</h4>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <a
-                  href="#"
-                  className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
-                >
-                  Centro de Ayuda
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
-                >
-                  Documentación
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
-                >
-                  Tutoriales
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
-                >
-                  Soporte Técnico
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
-                >
-                  Estado del Sistema
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <div>
             <h4 className="font-semibold mb-4">Mistacorp</h4>
             <div className="space-y-3 text-sm">
               <div className="flex items-start space-x-2">
                 <Mail className="w-4 h-4 mt-0.5 text-primary-foreground/60" />
                 <span className="text-primary-foreground/80">
-                  contacto@mistacorp.com
+                  Luis.manuel.rodriguez.0827@gmail.com
                 </span>
               </div>
               <div className="flex items-start space-x-2">
                 <Phone className="w-4 h-4 mt-0.5 text-primary-foreground/60" />
                 <span className="text-primary-foreground/80">
-                  +54 911 1234-5678
+                  +54 11 62688712‬
                 </span>
               </div>
               <div className="flex items-start space-x-2">

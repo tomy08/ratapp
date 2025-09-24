@@ -1,5 +1,5 @@
-import { Button } from "@/components/ui/button"
-import { GraduationCap, Menu } from "lucide-react"
+import { Button } from '@/components/ui/button'
+import { GraduationCap } from 'lucide-react'
 
 export function Header() {
   return (
@@ -46,13 +46,14 @@ export function Header() {
         </nav>
 
         <div className="flex items-center space-x-4">
-          <Button variant="outline" size="sm" className="hidden md:inline-flex bg-transparent">
+          <Button
+            variant="outline"
+            size="sm"
+            className="hidden md:inline-flex bg-transparent"
+          >
             Solicitar Demo
           </Button>
           <Button size="sm">Descargar App</Button>
-          <Button variant="ghost" size="sm" className="md:hidden">
-            <Menu className="h-4 w-4" />
-          </Button>
         </div>
       </div>
     </header>

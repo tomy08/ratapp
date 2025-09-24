@@ -40,7 +40,7 @@ export function ContactSection() {
                   <div>
                     <p className="font-medium">Email</p>
                     <p className="text-sm text-muted-foreground">
-                      contacto@mistacorp.com
+                      Luis.manuel.rodriguez.0827@gmail.com
                     </p>
                   </div>
                 </div>
@@ -52,7 +52,7 @@ export function ContactSection() {
                   <div>
                     <p className="font-medium">Teléfono</p>
                     <p className="text-sm text-muted-foreground">
-                      +54 911 1234-5678
+                      +54 11 62688712‬
                     </p>
                   </div>
                 </div>
@@ -108,7 +108,11 @@ export function ContactSection() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="phone">Teléfono</Label>
-                  <Input id="phone" placeholder="++54 911 1234-5678" />
+                  <Input
+                    id="phone"
+                    placeholder="++54 11 62688712‬
+"
+                  />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="institution">Tipo de institución</Label>
