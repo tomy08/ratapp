@@ -42,52 +42,6 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="font-semibold mb-4">Enlaces Rápidos</h4>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <a
-                  href="#inicio"
-                  className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
-                >
-                  Inicio
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#beneficios"
-                  className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
-                >
-                  Beneficios
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#funciones"
-                  className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
-                >
-                  Funciones
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#testimonios"
-                  className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
-                >
-                  Testimonios
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#contacto"
-                  className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
-                >
-                  Contacto
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <div>
             <h4 className="font-semibold mb-4">Mistacorp</h4>
             <div className="space-y-3 text-sm">
               <div className="flex items-start space-x-2">

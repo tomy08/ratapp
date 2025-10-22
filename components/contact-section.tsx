@@ -1,20 +1,68 @@
+'use client'
+
+import { useState } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select'
+// using native selects for simplicity and guaranteed controlled behavior
 import { Mail, Phone, MapPin, Download } from 'lucide-react'
+import { toast } from 'sonner'
 
 export function ContactSection() {
+  const [form, setForm] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    institution: '',
+    studentsRange: '',
+    message: '',
+  })
+  const [loading, setLoading] = useState(false)
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault()
+    if (!form.name || !form.email) {
+      toast.error('El nombre y email son obligatorios')
+      return
+    }
+    setLoading(true)
+    try {
+      const endpoint = `https://formspree.io/f/mpwygjnz`
+      const res = await fetch(endpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify(form),
+      })
+      const data = await res.json()
+      if (res.ok) {
+        toast.success('Solicitud enviada correctamente. ¡Gracias!')
+        setForm({
+          name: '',
+          email: '',
+          phone: '',
+          institution: '',
+          studentsRange: '',
+          message: '',
+        })
+      } else {
+        toast.error(
+          data.error || 'Error al enviar vía Formspree. Intenta nuevamente.'
+        )
+      }
+    } catch (err) {
+      toast.error('Error de red. Intenta nuevamente más tarde.')
+    } finally {
+      setLoading(false)
+    }
+  }
+
   return (
-    <section id="contacto" className="py-20">
+    <section id="contacto" className="py-8">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-balance mb-4">
@@ -52,7 +100,7 @@ export function ContactSection() {
                   <div>
                     <p className="font-medium">Teléfono</p>
                     <p className="text-sm text-muted-foreground">
-                      +54 11 62688712‬
+                      +54 11 62688712
                     </p>
                   </div>
                 </div>
@@ -94,80 +142,107 @@ export function ContactSection() {
               <CardTitle>Solicitar Información</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <Label htmlFor="name">Nombre completo</Label>
-                  <Input id="name" placeholder="Tu nombre" />
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="name">Nombre completo</Label>
+                    <Input
+                      id="name"
+                      value={form.name}
+                      onChange={(e) =>
+                        setForm({ ...form, name: e.target.value })
+                      }
+                      placeholder="Tu nombre"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="email">Email</Label>
+                    <Input
+                      id="email"
+                      type="email"
+                      value={form.email}
+                      onChange={(e) =>
+                        setForm({ ...form, email: e.target.value })
+                      }
+                      placeholder="tu@email.com"
+                    />
+                  </div>
                 </div>
-                <div className="space-y-2">
-                  <Label htmlFor="email">Email</Label>
-                  <Input id="email" type="email" placeholder="tu@email.com" />
-                </div>
-              </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="phone">Teléfono</Label>
+                    <Input
+                      id="phone"
+                      value={form.phone}
+                      onChange={(e) =>
+                        setForm({ ...form, phone: e.target.value })
+                      }
+                      placeholder="++54 11 62688712"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="institution">Tipo de institución</Label>
+                    <select
+                      id="institution"
+                      value={form.institution}
+                      onChange={(e) =>
+                        setForm({ ...form, institution: e.target.value })
+                      }
+                      className="w-full border border-border rounded-md px-3 py-2 bg-input text-foreground"
+                    >
+                      <option value="">Seleccionar</option>
+                      <option value="academy">Academia privada</option>
+                      <option value="school">Colegio público</option>
+                      <option value="university">Universidad</option>
+                      <option value="institute">Instituto técnico</option>
+                      <option value="other">Otro</option>
+                    </select>
+                  </div>
+                </div>
+
                 <div className="space-y-2">
-                  <Label htmlFor="phone">Teléfono</Label>
-                  <Input
-                    id="phone"
-                    placeholder="++54 11 62688712‬
-"
+                  <Label htmlFor="students">
+                    Número aproximado de estudiantes
+                  </Label>
+                  <select
+                    id="students"
+                    value={form.studentsRange}
+                    onChange={(e) =>
+                      setForm({ ...form, studentsRange: e.target.value })
+                    }
+                    className="w-full border border-border rounded-md px-3 py-2 bg-input text-foreground"
+                  >
+                    <option value="">Seleccionar rango</option>
+                    <option value="1-100">1 - 100 estudiantes</option>
+                    <option value="101-500">101 - 500 estudiantes</option>
+                    <option value="501-1000">501 - 1,000 estudiantes</option>
+                    <option value="1000+">Más de 1,000 estudiantes</option>
+                  </select>
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="message">Mensaje</Label>
+                  <Textarea
+                    id="message"
+                    value={form.message}
+                    onChange={(e) =>
+                      setForm({ ...form, message: e.target.value })
+                    }
+                    placeholder="Cuéntanos sobre tus necesidades específicas..."
+                    rows={4}
                   />
                 </div>
-                <div className="space-y-2">
-                  <Label htmlFor="institution">Tipo de institución</Label>
-                  <Select>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Seleccionar" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="academy">Academia privada</SelectItem>
-                      <SelectItem value="school">Colegio público</SelectItem>
-                      <SelectItem value="university">Universidad</SelectItem>
-                      <SelectItem value="institute">
-                        Instituto técnico
-                      </SelectItem>
-                      <SelectItem value="other">Otro</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-              </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="students">
-                  Número aproximado de estudiantes
-                </Label>
-                <Select>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Seleccionar rango" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="1-100">1 - 100 estudiantes</SelectItem>
-                    <SelectItem value="101-500">
-                      101 - 500 estudiantes
-                    </SelectItem>
-                    <SelectItem value="501-1000">
-                      501 - 1,000 estudiantes
-                    </SelectItem>
-                    <SelectItem value="1000+">
-                      Más de 1,000 estudiantes
-                    </SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="message">Mensaje</Label>
-                <Textarea
-                  id="message"
-                  placeholder="Cuéntanos sobre tus necesidades específicas..."
-                  rows={4}
-                />
-              </div>
-
-              <Button className="w-full" size="lg">
-                Enviar Solicitud
-              </Button>
+                <Button
+                  className="w-full"
+                  size="lg"
+                  type="submit"
+                  disabled={loading}
+                >
+                  {loading ? 'Enviando...' : 'Enviar Solicitud'}
+                </Button>
+              </form>
 
               <p className="text-xs text-muted-foreground text-center">
                 Al enviar este formulario, aceptas nuestros términos de

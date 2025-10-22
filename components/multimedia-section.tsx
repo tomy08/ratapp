@@ -1,15 +1,18 @@
-import { Card } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Play, Building2, Users, Award } from "lucide-react"
+import { Card } from '@/components/ui/card'
+import { Button } from '@/components/ui/button'
+import { Play, Building2, Users, Award } from 'lucide-react'
 
 export function MultimediaSection() {
   return (
-    <section className="py-20 bg-muted/30">
+    <section className="py-8 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-balance mb-4">Conoce Mistacorp</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-balance mb-4">
+            Conoce Mistacorp
+          </h2>
           <p className="text-lg text-muted-foreground text-pretty max-w-2xl mx-auto">
-            Descubre las instalaciones y el equipo detrás de RatApp, la empresa líder en soluciones educativas.
+            Descubre las instalaciones y el equipo detrás de RatApp, la empresa
+            líder en soluciones educativas.
           </p>
         </div>
 
@@ -35,9 +38,11 @@ export function MultimediaSection() {
             <div>
               <h3 className="text-2xl font-bold mb-4">Sobre Mistacorp</h3>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                Mistacorp es una empresa líder en desarrollo de soluciones tecnológicas para el sector educativo, con
-                más de 10 años de experiencia transformando la gestión académica en América Latina. Nuestro compromiso
-                es crear herramientas que mejoren la calidad educativa y fortalezcan la comunicación entre
+                Mistacorp es una empresa líder en desarrollo de soluciones
+                tecnológicas para el sector educativo, con más de 10 años de
+                experiencia transformando la gestión académica en América
+                Latina. Nuestro compromiso es crear herramientas que mejoren la
+                calidad educativa y fortalezcan la comunicación entre
                 instituciones, estudiantes y familias.
               </p>
             </div>
@@ -48,7 +53,9 @@ export function MultimediaSection() {
                   <Building2 className="w-6 h-6 text-primary" />
                 </div>
                 <div className="text-2xl font-bold text-primary">10+</div>
-                <div className="text-sm text-muted-foreground">Años de experiencia</div>
+                <div className="text-sm text-muted-foreground">
+                  Años de experiencia
+                </div>
               </div>
 
               <div className="text-center">
@@ -56,7 +63,9 @@ export function MultimediaSection() {
                   <Users className="w-6 h-6 text-accent" />
                 </div>
                 <div className="text-2xl font-bold text-accent">50+</div>
-                <div className="text-sm text-muted-foreground">Especialistas</div>
+                <div className="text-sm text-muted-foreground">
+                  Especialistas
+                </div>
               </div>
 
               <div className="text-center">
@@ -64,7 +73,9 @@ export function MultimediaSection() {
                   <Award className="w-6 h-6 text-chart-3" />
                 </div>
                 <div className="text-2xl font-bold text-chart-3">15+</div>
-                <div className="text-sm text-muted-foreground">Países atendidos</div>
+                <div className="text-sm text-muted-foreground">
+                  Países atendidos
+                </div>
               </div>
             </div>
 
