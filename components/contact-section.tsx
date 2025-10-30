@@ -7,9 +7,10 @@ import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
 import { Mail, Phone, MapPin, Download } from 'lucide-react'
-import { toast } from 'sonner'
+import { toast } from 'sonner' // Notificaciones tipo toast
 
 export function ContactSection() {
+  // Estado del formulario
   const [form, setForm] = useState({
     name: '',
     email: '',
@@ -18,16 +19,19 @@ export function ContactSection() {
     studentsRange: '',
     message: '',
   })
+  // Estado de carga al enviar
   const [loading, setLoading] = useState(false)
 
+  // Manejar envío del formulario
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     if (!form.name || !form.email) {
-      toast.error('El nombre y email son obligatorios')
+      toast.error('El nombre y email son obligatorios') //Toast de error si faltan campos obligatorios
       return
     }
     setLoading(true)
     try {
+      // Enviar datos a Formspree
       const endpoint = `https://formspree.io/f/mpwygjnz`
       const res = await fetch(endpoint, {
         method: 'POST',
@@ -39,7 +43,7 @@ export function ContactSection() {
       })
       const data = await res.json()
       if (res.ok) {
-        toast.success('Solicitud enviada correctamente. ¡Gracias!')
+        toast.success('Solicitud enviada correctamente. ¡Gracias!') // Toast de éxito
         setForm({
           name: '',
           email: '',
@@ -56,7 +60,7 @@ export function ContactSection() {
     } catch (err) {
       toast.error('Error de red. Intenta nuevamente más tarde.')
     } finally {
-      setLoading(false)
+      setLoading(false) // Terminar estado de carga
     }
   }
 

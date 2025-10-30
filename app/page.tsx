@@ -9,6 +9,7 @@ import { NewsSection } from '@/components/news-section'
 import { ContactSection } from '@/components/contact-section'
 import { Footer } from '@/components/footer'
 
+// Página principal que compone las secciones de la landing page
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-background">

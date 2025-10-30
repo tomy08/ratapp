@@ -1,8 +1,9 @@
-@import "tailwindcss";
-@import "tw-animate-css";
+@import 'tailwindcss';
+@import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
 
+/* Updated color palette using Oklch for better accessibility and modern look */
 :root {
   /* Updated theme for institutional RatApp design */
   --background: oklch(0.98 0.005 106.423);

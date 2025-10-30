@@ -3,6 +3,7 @@ import localFont from 'next/font/local'
 import './globals.css'
 import ToasterClient from '@/components/toaster-client'
 
+// Importa fuentes personalizadas con variables y pesos específicos
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
   variable: '--font-geist-sans',
@@ -14,12 +15,14 @@ const geistMono = localFont({
   weight: '100 900',
 })
 
+// Define los metadatos de la aplicación
 export const metadata: Metadata = {
   title: 'Ratapp',
   description:
     'RatApp es una aplicación de asistencia educativa que utiliza tecnología.',
 }
 
+// Componente principal que envuelve toda la aplicación
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -30,7 +33,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        {/* Renderiza los componentes hijos */}
         {children}
+        {/* Incluye un cliente para notificaciones tipo toaster */}
         <ToasterClient />
       </body>
     </html>
