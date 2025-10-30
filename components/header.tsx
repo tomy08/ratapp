@@ -49,7 +49,7 @@ export function Header() {
             Contacto
           </a>
           <a
-            href="/about"
+            href="#quienes-somos"
             className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
           >
             Quiénes somos
