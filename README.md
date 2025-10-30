@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# RatApp — Landing (Next.js)
 
-## Getting Started
+Landing de presentación para RatApp, construida con Next.js (App Router), Tailwind y componentes reutilizables.
 
-First, run the development server:
+## Rápido inicio
+
+Instalar dependencias y ejecutar en desarrollo:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Build y producción:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build
+npm start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Estructura relevante
 
-## Learn More
+- Entrada de la UI y composición de secciones:
+  - [app/page.tsx](app/page.tsx) — exporta la página principal (`HomePage`).
+  - [app/layout.tsx](app/layout.tsx) — layout global y fuente (`RootLayout`).
+  - [app/globals.css](app/globals.css) — estilos globales y variables CSS.
+- Componentes principales (exportan secciones usadas en la home):
+  - [`HeroSection`](components/hero-section.tsx) — [components/hero-section.tsx](components/hero-section.tsx)
+  - [`BenefitsSection`](components/benefits-section.tsx) — [components/benefits-section.tsx](components/benefits-section.tsx)
+  - [`FeaturesSection`](components/features-section.tsx) — [components/features-section.tsx](components/features-section.tsx)
+  - [`TestimonialsSection`](components/testimonials-section.tsx) — [components/testimonials-section.tsx](components/testimonials-section.tsx)
+  - [`FAQSection`](components/faq-section.tsx) — [components/faq-section.tsx](components/faq-section.tsx)
+  - [`NewsSection`](components/news-section.tsx) — [components/news-section.tsx](components/news-section.tsx)
+  - [`AboutSection`](components/about-section.tsx) — [components/about-section.tsx](components/about-section.tsx)
+  - [`ContactSection`](components/contact-section.tsx) — [components/contact-section.tsx](components/contact-section.tsx)
+  - UI atoms: [`Button`](components/ui/button.tsx), [`Input`](components/ui/input.tsx), [`Textarea`](components/ui/textarea.tsx), [`Card`](components/ui/card.tsx), [`Accordion`](components/ui/accordion.tsx), [`Badge`](components/ui/badge.tsx) — ver carpeta [components/ui](components/ui).
+- Utilidades:
+  - [`cn`](lib/utils.ts) — [lib/utils.ts](lib/utils.ts) (combinador de clases).
+- Configuración:
+  - [package.json](package.json) — scripts y dependencias.
+  - [tsconfig.json](tsconfig.json)
+  - [tailwind.config.ts](tailwind.config.ts)
+  - [postcss.config.mjs](postcss.config.mjs)
+  - [next.config.mjs](next.config.mjs)
+  - [vercel.json](vercel.json) — ajustes de despliegue en Vercel.
 
-To learn more about Next.js, take a look at the following resources:
+## Notas de desarrollo
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- El proyecto usa Next 15 (App Router) y Tailwind. Edita secciones en [app/page.tsx](app/page.tsx).
+- Componentes UI están organizados en [components/ui](components/ui). Reusa variantes (`cva`) y `cn` desde [`lib/utils.ts`](lib/utils.ts).
+- Formularios del sitio (Contact) envían a Formspree desde [components/contact-section.tsx](components/contact-section.tsx).
+- Notificaciones usan `sonner` y el cliente está en [components/toaster-client.tsx](components/toaster-client.tsx).
