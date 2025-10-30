@@ -6,7 +6,6 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
-// using native selects for simplicity and guaranteed controlled behavior
 import { Mail, Phone, MapPin, Download } from 'lucide-react'
 import { toast } from 'sonner'
 
@@ -178,7 +177,7 @@ export function ContactSection() {
                       onChange={(e) =>
                         setForm({ ...form, phone: e.target.value })
                       }
-                      placeholder="++54 11 62688712"
+                      placeholder="+54 11 62688712"
                     />
                   </div>
                   <div className="space-y-2">
