@@ -47,9 +47,7 @@ export function NewsSection() {
             >
               <CardHeader>
                 <div className="flex items-center justify-between mb-2">
-                  <Badge variant="secondary" className="text-xs">
-                    {item.badge}
-                  </Badge>
+                  <Badge className="text-xs">{item.badge}</Badge>
                   <div className="flex items-center text-xs text-muted-foreground">
                     <Calendar className="w-3 h-3 mr-1" />
                     {item.date}

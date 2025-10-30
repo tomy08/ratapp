@@ -7,7 +7,7 @@ export function HeroSection() {
     <section id="inicio" className="relative py-10 pt-20 overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-4xl mx-auto">
-          <Badge variant="secondary" className="mb-6">
+          <Badge className="mb-6">
             <Shield className="w-3 h-3 mr-1" />
             Patrocinado por el Gobierno
           </Badge>
@@ -26,13 +26,6 @@ export function HeroSection() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <Button size="lg" className="text-base px-8">
               Solicitar Demo Gratuita
-            </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              className="text-base px-8 bg-transparent"
-            >
-              Ver Video Explicativo
             </Button>
           </div>
 
